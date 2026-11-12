@@ -1,3 +1,4 @@
+from pets import Dog, Cat, Bird
 class Pet:
   """A basic pet. Every pet has a name, an age, and some energy."""
   def __init__(self, name, age):
@@ -21,3 +22,15 @@ class Dog(Pet):
 class Cat(Pet):
   def speak(self):
     return "Meow."
+
+class Bird(Pet):
+  def __init__(self, name, age, can_fly=True):
+    super().__init__(name, age)
+    self.can_fly = can_fly
+    self.energy = 5
+  def speak(self):
+    return "Tweet!"
+  def describe(self):
+    flying = "can fly" if self.can_fly else "cannot fly"
+    return super().describe() + f" and {flying}."
+shelter = [Dog("Bantay", 3), Cat("Mingming", 2), Bird("Tweety", 1)]
